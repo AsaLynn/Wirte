@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion 25
+    //buildToolsVersion "25.0.2"
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+
+    defaultConfig {
+        applicationId "com.yinghuanhang.pdf.parser"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+greendao {
+    schemaVersion 1
+    daoPackage 'com.yinghuanhang.pdf.parser.db'
+    targetGenDir 'src/main/java'
+    generateTests true
+    targetGenDirTests 'src/androidTest/gen'
+}
+
+dependencies {
+//    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+
+//    implementation 'com.nineoldandroids:library:2.4.0'
+//    testCompile 'junit:junit:4.12'
+    implementation 'com.android.support:recyclerview-v7:25.3.1'
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+    //读取PDF文件
+    implementation files('libs/poi-3.15.jar')
+    implementation files('libs/poi-scratchpad-3.15.jar')
+    implementation 'com.github.mjdev:libaums:+'
+    implementation files('libs/commons-io-1.2.jar')
+    implementation files('libs/ZipEntry.jar')
+    androidTestCompile 'org.testng:testng:6.9.6'
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation project(':library-progressblackbox')
+    implementation 'com.jude:easyrecyclerview:4.3.7'
+    implementation 'com.bm.photoview:library:1.4.1'
+
+    implementation 'com.king.base:base:3.1.0'
+}
+
+
+//Configuration 'androidTestCompile' is obsolete and has been replaced with
+// 'androidTestImplementation'.
+//        It will be removed at the end of 2018

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yinghuanhang.pdf.parser">
+    <!---->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 从SDCard读取数据权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.hardware.usb.host"
+        android:required="false" />
+    <!-- //因为部分手机上是没有otg的所以需要加入特性。 -->
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="true" />
+
+    <application
+        android:name=".application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.activity.WelcomeActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MuPDFDemoActivity">
+
+            <!-- //从sd卡打开项目 -->
+            <!-- android:launchMode="singleTop"> -->
+
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.SEND"/> -->
+            <!-- <action android:name="android.intent.action.VIEW"/> -->
+
+
+            <!-- <category android:name="android.intent.category.DEFAULT"/> -->
+            <!-- <data android:mimeType="application/pdf"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name="com.activity.MainActivity" />
+        <activity android:name="com.activity.BtonTwo" />
+        <activity android:name="com.activity.BtonThere" />
+        <activity android:name="com.activity.PhotoActivity" />
+        <activity android:name="com.activity.HomeActivity" />
+        <activity android:name=".MuPDFMainActivity" />
+        <activity
+            android:name="com.activity.PdfActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.activity.MyWriteActivity"
+            android:configChanges="orientation|keyboard"
+            android:screenOrientation="landscape" />
+        <activity android:name="com.usbtest.uMainActivity" />
+        <activity android:name="com.activity.MyMainActivity" />
+        <activity android:name="com.activity.MyPdfActivity" />
+        <activity android:name="com.activity.MyPhotoActivity" />
+        <activity
+            android:name="com.activity.MyImagesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.activity.ContentActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>
